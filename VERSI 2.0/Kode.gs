@@ -27,7 +27,7 @@ var GoogleSheetFileId = "ISI DENGAN ID GOOGLE SHEET"
 var GoogleSheetName = "ISI DENGAN NAMA GOOGLE SHEET" //contoh "Sheet1"
 var usernamebot = "ISI DENGAN USERNAME BOT" //contoh "Hazmi101Bot"
 var googlescriptdeployurl = "ISI DENGAN LINK DEPLOY GOOGLE SCRIPT" //contoh "https://script.google.com/macros/s/xxxxxx/exec"
-
+var IdAdmin = "1234567890"//isi dengan id anda supaya bot bisa membedakan pemilik dan pengguna
 /*
 
 AGAR FITUR OCR DAPAT BERKERJA LAKUKAN INI:
