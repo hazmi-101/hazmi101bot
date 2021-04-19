@@ -15,7 +15,7 @@ try{
 //save user untuk broadcast (kirim pesan ke pengguna bot)
 saveUser(bot.update.message.chat.id)
 bot.cmd(["broadcast","announcement"],(res)=>{ // command /broadcast atau /announcement akan di eksekusi
-let adminId = 1234567890 // id admin (id kamu)
+let adminId = IdAdmin // id admin (id kamu)
 if(res.message.from.id == adminId){ // jika admin
 if(!res.message.reply_to_message){ // jika tidak reply pesan
 return bot.replyToMessage("Please reply message") // maka bot akan mengirimkan pesan
@@ -47,7 +47,7 @@ tg.kirimPesan(msg.chat.id,"<b>UTC +07:00</b>\n"+writeIslamicDate(-1)+"\n\n"+hari
 
 //jalankan script
 if(jalur = /(^\/jalan(@Hazmi101Bot)? )/i.exec(msg.text)){
-if(msg.from.id == 1234567890){
+if(msg.from.id == IdAdmin){
 try {
 var hasill = msg.text.replace(jalur[1], '') 
 eval(hasill)
