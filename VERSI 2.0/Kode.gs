@@ -21,12 +21,19 @@ ID Library (beta) :
 1QnAO4mNqFd4Kn_MOtvIqCmGC1BvTvxv0MDmB1BvSBzAMmevVejvuk2HW
 */
 
-//SILAHKAN ISI
+//KONFIGURASI
 var BotToken = "ISI DENGAN BOT TOKEN"
 var GoogleSheetFileId = "ISI DENGAN ID GOOGLE SHEET"
 var GoogleSheetName = "ISI DENGAN NAMA GOOGLE SHEET" //contoh "Sheet1"
 var usernamebot = "ISI DENGAN USERNAME BOT" //contoh "Hazmi101Bot"
 var googlescriptdeployurl = "ISI DENGAN LINK DEPLOY GOOGLE SCRIPT" //contoh "https://script.google.com/macros/s/xxxxxx/exec"
+
+/*
+
+AGAR FITUR OCR DAPAT BERKERJA LAKUKAN INI:
+https://hazmi-101.github.io/file/tutorial_ocr.jpg
+
+*/
 
 
 //hati-hati saat mengubah script dibawah
@@ -229,9 +236,8 @@ var bulanarray=new Array("Januari","Februari","Maret","April","Mei","Juni","Juli
 function fungsi_ocr(msg, file_id) {
 var status;
 try {
-var token = "RAHASIA";      
 var foto = tg.getFile(file_id);
-var urlpath = "https://api.telegram.org/file/bot"+token+"/"+foto.result.file_path; 
+var urlpath = "https://api.telegram.org/file/bot"+BotToken+"/"+foto.result.file_path; 
 var imageBlob = UrlFetchApp.fetch(urlpath).getBlob();
 var resource =
 {
@@ -248,12 +254,10 @@ var doc = DocumentApp.openById(docFile.id);
 var text = doc.getBody().getText().replace("n", "");
 Drive.Files.remove(docFile.id);
 status = text;
-//Logger.log("text: " + status.toString());
 } 
 catch (error)
 {    
-status = "ERROR: " + error.toString();
-//Logger.log("ERROR: " + error.toString());    
+status = "ada error sepertinya anda belum mengaktifkan:\n\nhttps://hazmi-101.github.io/file/tutorial_ocr.jpg\n\n\npesan error: " + error.toString();
 }
 return tg.kirimPesan(msg.chat.id,"<b>Hasil OCR:</b>\n\n"+status, 'HTML', msg.message_id);
 }
