@@ -23,6 +23,10 @@ return bot.replyToMessage("Please reply message") // maka bot akan mengirimkan p
 return broadcast(res.message.reply_to_message.text,res.message.reply_to_message.entities)
 }
 });
+bot.on("edited_message",(res)=>{
+  bot.reply("pesan di edit")
+})
+
 if(update.message){
 var msg = update.message
 
