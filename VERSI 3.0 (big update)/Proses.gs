@@ -77,7 +77,7 @@ else if(msg.reply_to_message.sticker){tg.kirimPesan(msg.chat.id,"belum suport oc
 
 //JALANKAN SCRIPT (admin only)
 if(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i").exec(msg.text)){
-if(msg.from.id == "1394335657"){
+if(msg.from.id == IdAdmin){
 try {
 var hasil = msg.text.replace(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i"),'')
 eval(hasil)
