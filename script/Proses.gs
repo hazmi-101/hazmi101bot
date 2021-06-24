@@ -77,8 +77,8 @@ else if(msg.reply_to_message.sticker){tg.kirimPesan(msg.chat.id,"belum suport oc
 
 //JALANKAN SCRIPT (admin bot only)
 if(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i").exec(msg.text)){
-if(msg.from.id == "1394335657"){
-var hasil = msg.text.replace(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i"),'').replace(/console([ \n\u0009]+)?\.([ \n\u0009]+)?log([ \n\u0009]+)?\(/g,"kirim2(").replace(/Logger([ \n\u0009]+)?\.([ \n\u0009]+)?log([ \n\u0009]+)?\(/g,"kirim2(")
+if(msg.from.id == IdAdmin){
+var hasil = msg.text.replace(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i"),'')
 if(hasil.length !== 0){
 try{eval(hasil)}
 catch(err){tg.kirimPesan(msg.chat.id,"#error\n\n<b>Pesan Error:</b>\n<code>"+tg.util.clearHTML(err.toString())+"</code>","HTML",true,msg.message_id)}
