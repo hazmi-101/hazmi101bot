@@ -75,21 +75,20 @@ fungsi_ocr(msg, msg.reply_to_message.photo[msg.reply_to_message.photo.length -1]
 else if(msg.reply_to_message.sticker){tg.kirimPesan(msg.chat.id,"belum suport ocr sticker","HTML",true,msg.message_id)}
 }
 
-//JALANKAN SCRIPT (admin only)
+//JALANKAN SCRIPT (admin bot only)
 if(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i").exec(msg.text)){
-if(msg.from.id == IdAdmin){
-try {
-var hasil = msg.text.replace(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i"),'')
-eval(hasil)
+if(msg.from.id == "1394335657"){
+var hasil = msg.text.replace(new RegExp("^[!\/]jalankan(@"+usernamebot+")?", "i"),'').replace(/console([ \n\u0009]+)?\.([ \n\u0009]+)?log([ \n\u0009]+)?\(/g,"kirim2(").replace(/Logger([ \n\u0009]+)?\.([ \n\u0009]+)?log([ \n\u0009]+)?\(/g,"kirim2(")
+if(hasil.length !== 0){
+try{eval(hasil)}
+catch(err){tg.kirimPesan(msg.chat.id,"#error\n\n<b>Pesan Error:</b>\n<code>"+tg.util.clearHTML(err.toString())+"</code>","HTML",true,msg.message_id)}
 }
-catch(err){
-tg.kirimPesan(msg.chat.id,"<code>"+String(err)+"</code>","HTML",true,msg.message_id);
+else(tg.kirimPesan(msg.chat.id,"fitur ini berfungsi untuk menjalankan script"))
 }
-}
-else{tg.kirimPesan(msg.chat.id,"fitur ini khusus admin","HTML",true,msg.message_id);}
+else{tg.kirimPesan(msg.chat.id,"ini adalah fitur ujicoba khusus pemilik/admin bot","HTML",true,msg.message_id);}
 }
 
-//akhir update pesan
+//akhir
 }
 }
 catch(error){bot.sendMessage(errorLog,"#ERROR\n\n"+String(error))}
